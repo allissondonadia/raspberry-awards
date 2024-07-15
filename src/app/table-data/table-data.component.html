@@ -1,0 +1,20 @@
+<div class="table_component">
+  <table>
+    <thead>
+      <tr>
+        @for (column of displayedColumns; track column) {
+        <th>{{ column }}</th>
+        }
+      </tr>
+    </thead>
+    <tbody>
+      @for (item of dataSource; track item[columns[0]]) {
+      <tr>
+        <td *ngFor="let column of columns; trackBy: identify">
+          {{ item[column] }}
+        </td>
+      </tr>
+      }
+    </tbody>
+  </table>
+</div>

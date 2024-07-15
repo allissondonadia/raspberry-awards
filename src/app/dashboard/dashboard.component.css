@@ -1,0 +1,62 @@
+.dashboard-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 10px;
+  padding: 10px;
+
+  @media (max-width: 1279px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  padding: 10px;
+  width: 500px;
+  background-color: white;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+
+  @media (max-width: 1279px) {
+    min-width: 500px;
+    width: auto;
+  }
+}
+
+.card h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.card h3 {
+  font-size: 18px;
+  font-weight: lighter;
+  color: rgb(130, 130, 130);
+}
+
+.search-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  gap: 10px;
+}
+
+.search-by-year {
+  font-size: 16px;
+  border: 1px solid rgb(130, 130, 130, 0.3);
+  border-width: 1px;
+  border-radius: 3px;
+  padding: 4px;
+  /* margin-right: 3px; */
+  color: rgb(130, 130, 130);
+  width: 100%;
+}
+
+.search-container button {
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 5px 10px;
+  text-decoration: none;
+  cursor: pointer;
+}

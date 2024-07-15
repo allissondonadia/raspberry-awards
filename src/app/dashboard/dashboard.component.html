@@ -1,0 +1,67 @@
+<div class="dashboard-container">
+  <div class="card">
+    <h2>List year with multiple winners</h2>
+    <app-table-data
+      [displayedColumns]="['Year', 'Win count']"
+      [columns]="['year', 'winnerCount']"
+      [dataSource]="multipleWinners"
+    ></app-table-data>
+  </div>
+
+  <div class="card">
+    <h2>Top 3 studios with winners</h2>
+    <app-table-data
+      [displayedColumns]="['Name', 'Win count']"
+      [columns]="['name', 'winCount']"
+      [dataSource]="studioWinners"
+    ></app-table-data>
+  </div>
+
+  <div class="card">
+    <h2>Producers with longest and shortest interval between wins</h2>
+    <h3>Maximum</h3>
+    <app-table-data
+      [displayedColumns]="[
+        'Producer',
+        'Interval',
+        'Previous year',
+        'Following year'
+      ]"
+      [columns]="['producer', 'interval', 'previousWin', 'followingWin']"
+      [dataSource]="minMaxAward.max"
+    ></app-table-data>
+    <h3>Minimum</h3>
+    <app-table-data
+      [displayedColumns]="[
+        'Producer',
+        'Interval',
+        'Previous year',
+        'Following year'
+      ]"
+      [columns]="['producer', 'interval', 'previousWin', 'followingWin']"
+      [dataSource]="minMaxAward.min"
+    ></app-table-data>
+  </div>
+
+  <div class="card">
+    <h2>List movie winners by year</h2>
+    <div class="search-container">
+      <input
+        class="search-by-year"
+        #searchYear
+        (change)="changeSearchYear(searchYear.value)"
+        type="number"
+        maxlength="4"
+        placeholder="Search by year"
+      />
+      <button (click)="changeSearchYear(searchYear.value)">
+        <span class="material-symbols-outlined"> search </span>
+      </button>
+    </div>
+    <app-table-data
+      [displayedColumns]="['Id', 'Year', 'Title']"
+      [columns]="['id', 'year', 'title']"
+      [dataSource]="movieWinner"
+    ></app-table-data>
+  </div>
+</div>

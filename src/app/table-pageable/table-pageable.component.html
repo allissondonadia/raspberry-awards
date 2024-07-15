@@ -1,0 +1,48 @@
+<div class="table_component">
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th class="header-filter">
+          Year
+          <input
+            class="year-movie"
+            type="number"
+            placeholder="Filter by year"
+            [(ngModel)]="yearFilter"
+            (input)="filter()"
+          />
+        </th>
+        <th>Title</th>
+        <th class="header-filter">
+          Winner?
+          <select
+            class="select-winner"
+            [(ngModel)]="winnerFilter"
+            (change)="filter()"
+          >
+            <option value="">Yes/No</option>
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (movie of pageableMovies.content; track movie.id) {
+      <tr>
+        <td>{{ movie.id }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.winner }}</td>
+      </tr>
+      }
+    </tbody>
+  </table>
+  <div class="footer">
+    <app-my-pagination
+      [pageableMovies]="pageableMovies"
+      (pageChangedEvent)="onPageChaged($event)"
+    ></app-my-pagination>
+  </div>
+</div>
