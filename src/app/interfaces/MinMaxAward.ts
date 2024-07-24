@@ -1,4 +1,4 @@
-import { IntervalAward } from './intervalAward';
+import { IntervalAward } from './IntervalAward';
 
 export interface MinMaxAward {
   min: IntervalAward[];
